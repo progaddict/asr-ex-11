@@ -80,12 +80,12 @@ number_of_nodes_without_sharing = get_total_number_of_phonemes_without_sharing(x
 
 
 def print_stats_and_stuff(t, output_file_name=None):
-    number_of_nodes = tree_stuff.count_number_of_nodes(complete_tree)
+    number_of_nodes = tree_stuff.count_number_of_nodes(t)
     print('number of nodes in the tree = ', number_of_nodes)
     if output_file_name is not None:
         print('writing the tree into ' + output_file_name + '...')
         pp = pprint.PrettyPrinter(indent=2, stream=open(output_file_name, 'w', encoding='utf-8'))
-        pp.pprint(complete_tree)
+        pp.pprint(t)
     print('done')
     print('without sharing number of nodes would be = ', number_of_nodes_without_sharing)
     print('therefore the compression ratio = ', number_of_nodes_without_sharing / number_of_nodes)

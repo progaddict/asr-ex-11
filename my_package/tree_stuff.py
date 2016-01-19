@@ -14,6 +14,39 @@ def add(t, path, value):
     setValue(t, value)
 
 
+def add_share_first_2_only(t, path, value):
+    add_share_first_N_only(t, path, 2, value)
+
+
+def add_share_first_3_only(t, path, value):
+    add_share_first_N_only(t, path, 3, value)
+
+
+def add_share_first_N_only(t, path, N, value):
+    if len(path) <= N:
+        add(t, path, value)
+        return
+    shared_nodes = path[:N];
+    for node in shared_nodes:
+        if node not in t:
+            t[node] = {}
+        t = t[node]
+    nonshared_nodes = path[N:];
+    for node in nonshared_nodes:
+        if node not in t:
+            t[node] = {}
+            t = t[node]
+        else:
+            postfix = 2
+            newnode = node + str(postfix)
+            while newnode in t:
+                postfix += 1
+                newnode = node + str(postfix)
+            t[newnode] = {}
+            t = t[newnode]
+    setValue(t, value)
+
+
 def hasValue(t, value):
     return (VALUE_KEY in t)
 

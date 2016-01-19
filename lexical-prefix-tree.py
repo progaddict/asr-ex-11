@@ -17,7 +17,6 @@ def get_total_number_of_phonemes_without_sharing(xmlRoot):
     return result
 
 
-# Task 11.1 (b) (i)
 def task_b_i(xmlRoot):
     # call factory function to produce a tree
     complete_tree = tree_stuff.getTree()
@@ -44,6 +43,30 @@ def task_b_i(xmlRoot):
     return complete_tree
 
 
+def task_b_ii(xmlRoot):
+    tree = tree_stuff.getTree()
+    for lemma in xmlRoot.iter('lemma'):
+        if ('special' in lemma.attrib):
+            continue
+        word = lemma.find('orth').text
+        for phon in lemma.iter('phon'):
+            phoneme_path = phon.text.split(' ')
+            tree_stuff.add_share_first_2_only(tree, phoneme_path, word)
+    return tree
+
+
+def task_b_iii(xmlRoot):
+    tree = tree_stuff.getTree()
+    for lemma in xmlRoot.iter('lemma'):
+        if ('special' in lemma.attrib):
+            continue
+        word = lemma.find('orth').text
+        for phon in lemma.iter('phon'):
+            phoneme_path = phon.text.split(' ')
+            tree_stuff.add_share_first_3_only(tree, phoneme_path, word)
+    return tree
+
+
 xmlDoc = lxml.etree.parse('lexicon.xml')
 print('parsed lexicon.xml')
 total_number_of_lemmas = int(xmlDoc.xpath('count(//lemma)'))
@@ -53,19 +76,33 @@ print('lemmas: ', total_number_of_lemmas)
 print('special lemmas: ', number_of_special_lemmas)
 print('actual words: ', total_number_of_words)
 xmlRoot = xmlDoc.getroot()
-print()
-print('PART (b) (i)')
-complete_tree = task_b_i(xmlRoot)
-print('complete tree has been built')
-number_of_nodes_in_complete_tree = tree_stuff.count_number_of_nodes(complete_tree)
-print('number of nodes in the tree = ', number_of_nodes_in_complete_tree)
 number_of_nodes_without_sharing = get_total_number_of_phonemes_without_sharing(xmlRoot)
-print('without sharing number of nodes would be = ', number_of_nodes_without_sharing)
-print('therefore the compression ratio = ', number_of_nodes_without_sharing / number_of_nodes_in_complete_tree)
-print()
-print('PART (b) (i)')
-print('printing the tree into complete_tree.txt...')
-pp = pprint.PrettyPrinter(indent=2, stream=open('complete_tree.txt', 'w', encoding='utf-8'))
-pp.pprint(complete_tree)
-print('done printing')
+
+
+def print_stats_and_stuff(t, output_file_name=None):
+    number_of_nodes = tree_stuff.count_number_of_nodes(complete_tree)
+    print('number of nodes in the tree = ', number_of_nodes)
+    if output_file_name is not None:
+        print('writing the tree into ' + output_file_name + '...')
+        pp = pprint.PrettyPrinter(indent=2, stream=open(output_file_name, 'w', encoding='utf-8'))
+        pp.pprint(complete_tree)
+    print('done')
+    print('without sharing number of nodes would be = ', number_of_nodes_without_sharing)
+    print('therefore the compression ratio = ', number_of_nodes_without_sharing / number_of_nodes)
+
+
+print('PART (b) (i) FULL SHARING')
+print('building a tree...')
+complete_tree = task_b_i(xmlRoot)
 print('done')
+print_stats_and_stuff(complete_tree, 'complete_tree.txt')
+print('PART (b) (ii) FIRST TWO PHONEMES ARE SHARED')
+print('building a tree...')
+tree_with_only_2_first_phonemes_shared = task_b_ii(xmlRoot)
+print('done')
+print_stats_and_stuff(tree_with_only_2_first_phonemes_shared, 'tree_2_shared.txt')
+print('PART (b) (iii) FIRST THREE PHONEMES ARE SHARED')
+print('building a tree...')
+tree_with_only_3_first_phonemes_shared = task_b_iii(xmlRoot)
+print('done')
+print_stats_and_stuff(tree_with_only_3_first_phonemes_shared, 'tree_3_shared.txt')

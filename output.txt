@@ -1,0 +1,31 @@
+"C:\Users\Alexander Ryndin\Anaconda3\python.exe" "C:/Users/Alexander Ryndin/Documents/study/asr/ex-11/lexical-prefix-tree.py"
+parsed lexicon.xml
+lemmas:  11991
+special lemmas:  4
+actual words:  11987
+PART (b) (i) FULL SHARING
+building a tree...
+done
+number of nodes in the tree =  29898
+writing the tree into complete_tree.txt...
+done
+without sharing number of nodes would be =  80462
+therefore the compression ratio =  2.6912168037995854
+PART (b) (ii) FIRST TWO PHONEMES ARE SHARED
+building a tree...
+done
+number of nodes in the tree =  53393
+writing the tree into tree_2_shared.txt...
+done
+without sharing number of nodes would be =  80462
+therefore the compression ratio =  1.5069765699623545
+PART (b) (iii) FIRST THREE PHONEMES ARE SHARED
+building a tree...
+done
+number of nodes in the tree =  43093
+writing the tree into tree_3_shared.txt...
+done
+without sharing number of nodes would be =  80462
+therefore the compression ratio =  1.8671710022509456
+
+Process finished with exit code 0

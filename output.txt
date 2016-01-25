@@ -3,6 +3,7 @@ parsed lexicon.xml
 lemmas:  11991
 special lemmas:  4
 actual words:  11987
+
 PART (b) (i) FULL SHARING
 building a tree...
 done
@@ -11,6 +12,7 @@ writing the tree into complete_tree.txt...
 done
 without sharing number of nodes would be =  80462
 therefore the compression ratio =  2.6912168037995854
+
 PART (b) (ii) FIRST TWO PHONEMES ARE SHARED
 building a tree...
 done
@@ -19,6 +21,7 @@ writing the tree into tree_2_shared.txt...
 done
 without sharing number of nodes would be =  80462
 therefore the compression ratio =  1.5069765699623545
+
 PART (b) (iii) FIRST THREE PHONEMES ARE SHARED
 building a tree...
 done
@@ -27,5 +30,92 @@ writing the tree into tree_3_shared.txt...
 done
 without sharing number of nodes would be =  80462
 therefore the compression ratio =  1.8671710022509456
+
+
+
+PART (c) (i) TRIPHONES - FULL SHARING
+building a tree...
+done
+number of nodes in the tree =  43182
+writing the tree into complete_tree_c.txt...
+done
+without sharing number of nodes would be =  80462
+therefore the compression ratio =  1.8633226807466075
+
+PART (c) (ii) TRIPHONES - FIRST TWO TRIPHONEMES ARE SHARED
+building a tree...
+done
+number of nodes in the tree =  56813
+writing the tree into tree_2_shared_c.txt...
+done
+without sharing number of nodes would be =  80462
+therefore the compression ratio =  1.4162603629451005
+
+PART (c) (iii) TRIPHONES - FIRST THREE TRIPHONEMES ARE SHARED
+building a tree...
+done
+number of nodes in the tree =  50493
+writing the tree into tree_3_shared_c.txt...
+done
+without sharing number of nodes would be =  80462
+therefore the compression ratio =  1.5935278157368349
+
+
+
+PART (d) (i) TRIPHONES CART - FULL SHARING
+building a tree...
+done
+number of nodes in the tree =  27719
+writing the tree into complete_tree_d.txt...
+done
+without sharing number of nodes would be =  80462
+therefore the compression ratio =  2.9027742703560735
+
+PART (d) (ii) TRIPHONES CART - FIRST TWO CART TRIPHONEMES ARE SHARED
+building a tree...
+done
+number of nodes in the tree =  53147
+writing the tree into tree_2_shared_d.txt...
+done
+without sharing number of nodes would be =  80462
+therefore the compression ratio =  1.513951869343519
+
+PART (d) (iii) TRIPHONES CART - FIRST THREE CART TRIPHONEMES ARE SHARED
+building a tree...
+done
+number of nodes in the tree =  41799
+writing the tree into tree_3_shared_d.txt...
+done
+without sharing number of nodes would be =  80462
+therefore the compression ratio =  1.92497428168138
+
+
+
+PART (e) (i) TRIPHONES CART STATES - FULL SHARING
+building a tree...
+done
+number of nodes in the tree =  106730
+writing the tree into complete_tree_e.txt...
+done
+without sharing number of nodes would be =  241386
+therefore the compression ratio =  2.2616508947812237
+
+PART (e) (ii) TRIPHONES CART STATES - FIRST TWO CART TRIPHONEMES STATES ARE SHARED
+building a tree...
+done
+number of nodes in the tree =  213822
+writing the tree into tree_2_shared_e.txt...
+done
+without sharing number of nodes would be =  241386
+therefore the compression ratio =  1.1289109633246346
+
+PART (e) (iii) TRIPHONES CART STATES - FIRST THREE CART TRIPHONEMES STATES ARE SHARED
+building a tree...
+done
+number of nodes in the tree =  200161
+writing the tree into tree_3_shared_e.txt...
+done
+without sharing number of nodes would be =  241386
+therefore the compression ratio =  1.2059592028417123
 
 Process finished with exit code 0

@@ -28,12 +28,12 @@ def add_share_first_N_only(t, path, N, value):
         add(t, path, value)
         return
     current_node = t
-    shared_nodes = path[:N];
+    shared_nodes = path[:N]
     for phoneme in shared_nodes:
         if phoneme not in current_node:
             current_node[phoneme] = {}
         current_node = current_node[phoneme]
-    nonshared_nodes = path[N:];
+    nonshared_nodes = path[N:]
     for phoneme in nonshared_nodes:
         if phoneme not in current_node:
             current_node[phoneme] = {}

@@ -311,7 +311,7 @@ def print_stats_and_stuff(t, output_file_name=None):
         print('writing the tree into ' + output_file_name + '...')
         pp = pprint.PrettyPrinter(indent=2, stream=open(output_file_name, 'w', encoding='utf-8'))
         pp.pprint(t)
-    print('done')
+        print('done')
     print('without sharing number of nodes would be = ', number_of_nodes_without_sharing)
     print('therefore the compression ratio = ', number_of_nodes_without_sharing / number_of_nodes)
 
